@@ -1,7 +1,6 @@
 AM_DEFAULT_SOURCE_EXT = .cpp
 
-sbin_PROGRAMS = \
-	phosphor-demo-state-manager \
+sbin_PROGRAMS = phosphor-demo-state-manager 
 
 phosphor_demo_state_manager_SOURCES = \
 	demo_state_manager.cpp \
