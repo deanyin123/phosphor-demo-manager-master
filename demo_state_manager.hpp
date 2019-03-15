@@ -2,7 +2,7 @@
 
 #include <functional>
 #include <sdbusplus/bus.hpp>
-#include "xyz/openbmc_project/Demo/server.hpp"
+#include "xyz/openbmc_project/Demo/Demo/server.hpp"
 
 namespace phosphor
 {
