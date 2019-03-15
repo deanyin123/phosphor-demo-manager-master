@@ -29,7 +29,7 @@ class Demo : public DemoInherit
      * @param[in] objPath   - The Dbus object path
      */
     Demo(sdbusplus::bus::bus& bus, const char* objPath) :
-        BMCInherit(bus, objPath, true), bus(bus){     
+       DemoInherit(bus, objPath, true), bus(bus){     
     };
 
     /** @brief Returns current system time
