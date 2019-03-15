@@ -4,7 +4,7 @@ sbin_PROGRAMS = phosphor-demo-state-manager
 
 phosphor_demo_state_manager_SOURCES = \
 	demo_state_manager.cpp \
-	demo_state_manager_main.cpp \
+	demo_state_manager_main.cpp
 
 
 generic_cxxflags = \
