@@ -10,16 +10,10 @@ AC_PROG_CXX
 AC_PROG_INSTALL #Checks/sets the install variable to be used
 AC_PROG_MAKE_SET
 
-# Check for libraries
+# Check for libraries	
 PKG_CHECK_MODULES([SYSTEMD], [libsystemd >= 221])
-PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces],,\
-    AC_MSG_ERROR(["Requires phosphor-dbus-interfaces package."]))
-PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus],,
-    AC_MSG_ERROR(["Requires sdbusplus package."]))
-PKG_CHECK_MODULES([SDEVENTPLUS], [sdeventplus],,
-    AC_MSG_ERROR(["Requires sdeventplus package."]))
-PKG_CHECK_MODULES([PHOSPHOR_LOGGING], [phosphor-logging],,\
-    AC_MSG_ERROR(["Requires phosphor-logging package."]))
+PKG_CHECK_MODULES([PHOSPHOR_DBUS_INTERFACES], [phosphor-dbus-interfaces])
+PKG_CHECK_MODULES([SDBUSPLUS], [sdbusplus])	
 
 # Checks for typedefs, structures, and compiler characteristics.
 AX_CXX_COMPILE_STDCXX_17([noext])
@@ -35,12 +29,6 @@ AC_DEFINE_UNQUOTED([DEMO_BUSNAME], ["$DEMO_BUSNAME"], [The Host DBus busname to 
 AC_ARG_VAR(DEMO_OBJPATH, [The host state manager Dbus root])
 AS_IF([test "x$DEMO_OBJPATH" == "x"], [DEMO_OBJPATH="/xyz/openbmc_project/demo/demo"])
 AC_DEFINE_UNQUOTED([DEMO_OBJPATH], ["$DEMO_OBJPATH"], [The host state manager Dbus root])
-
-
-
-AC_ARG_VAR(BOOT_COUNT_MAX_ALLOWED, [The maximum allowed reboot count])
-AS_IF([test "x$BOOT_COUNT_MAX_ALLOWED" == "x"], [BOOT_COUNT_MAX_ALLOWED=3])
-AC_DEFINE_UNQUOTED([BOOT_COUNT_MAX_ALLOWED], [$BOOT_COUNT_MAX_ALLOWED], [The maximum allowed reboot count])
 
 # Check for header files.
 AC_CHECK_HEADER(systemd/sd-bus.h, ,[AC_MSG_ERROR([Could not find systemd/sd-bus.h...systemd development package required])])
